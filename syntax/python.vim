@@ -190,13 +190,13 @@ endif
 " Decorators (new in Python 2.4)
 "
 
-syn match   pythonDecorator	"@" display nextgroup=pythonDottedName skipwhite
+syn match   pythonDecorator	"@" display nextgroup=pythonDecorator skipwhite
 if s:Python2Syntax()
-  syn match   pythonDottedName "[a-zA-Z_][a-zA-Z0-9_]*\%(\.[a-zA-Z_][a-zA-Z0-9_]*\)*" display contained
+  syn match pythonDecorator "[a-zA-Z_][a-zA-Z0-9_]*\%(\.[a-zA-Z_][a-zA-Z0-9_]*\)*" display contained
 else
-  syn match   pythonDottedName "\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*\%(\.\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*\)*" display contained
+  syn match pythonDecorator "\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*\%(\.\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*\)*" display contained
 endif
-syn match   pythonDot        "\." display containedin=pythonDottedName
+syn match   pythonDot        "\." display containedin=pythonDecorator
 
 "
 " Comments
